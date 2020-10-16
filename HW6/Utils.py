@@ -12,6 +12,19 @@ def Plot(f):
 
     plt.show()
 
+def Plot(f, P, n):
+
+    fig, ax = plt.subplots()
+    ax.plot(f[0], f[1], c='r', label='F', alpha=0.5)
+    ax.plot(P[0], P[1], c='b', label='P', alpha=0.5)
+    ax.grid(True)
+    plt.legend()
+    plt.title("Piece-wise Cubic B-spline (n=3, m={})".format(n-1))
+
+    plt.savefig("F{}.png".format(n))
+
+    plt.show()
+
 
 def computeF(t):
 
