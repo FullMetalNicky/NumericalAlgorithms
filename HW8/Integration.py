@@ -64,7 +64,7 @@ def compositeRule(x, a, b, m, f):
 
     for i in range(0, n):
 
-        res += 2 * f(x[4*i+1]) - f(x[4*i + 2]) + 2 * f(x[2*i + 3])
+        res += 2 * f(x[4*i+1]) - f(x[4*i + 2]) + 2 * f(x[4*i + 3])
 
     res = (4.0/3.0)*h * res
 
@@ -79,12 +79,13 @@ def main():
     a = 0
     b = 1
     m = 100
-    x = np.linspace(0, 1, m + 1)
+    x = np.linspace(a, b, m + 1)
 
     res = compositeRule(x, a, b, m, sinc)
     print("the integral of sinx/x computed with wolframalpha is 0.946083")
     print("result approximated with {} segments is {}".format(m, res))
-
+    # app = regRule(0.25, 0.5, 0.75, 0.25, sinc)
+    # print(res - app)
 
 if __name__ == '__main__':
     main()
